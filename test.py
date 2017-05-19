@@ -25,6 +25,10 @@ def test_address_init_tricky_input():
     assert Address('臺北市中山區敬業1路').tokens == [('', '', '臺北', '市'), ('', '', '中山', '區'), ('', '', '敬業1', '路')]
     assert Address('臺北市中山區敬業1路10號').tokens == [('', '', '臺北', '市'), ('', '', '中山', '區'), ('', '', '敬業1', '路'), ('10', '', '', '號')]
 
+def test_address_lazy_name():
+
+    assert Address('北市中正區').tokens == [('', '', '臺北', '市'), ('', '', '中正', '區') ]
+
 def test_address_init_normalization():
 
     expected_tokens = [('', '', '臺北', '市'), ('', '', '大安', '區'), ('', '', '市府', '路'), ('1', '之1', '', '號')]

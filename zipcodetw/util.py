@@ -29,6 +29,8 @@ class Address(object):
     UNIT  = 3
 
     TO_REPLACE_RE = re.compile('''
+        ^北市
+        |
         [ 　,，台~-]
         |
         [０-９]
@@ -41,6 +43,7 @@ class Address(object):
 
     # the strs matched but not in here will be removed
     TO_REPLACE_MAP = {
+        '北市':'臺北市',
         '-': '之', '~': '之', '台': '臺',
         '１': '1', '２': '2', '３': '3', '４': '4', '５': '5',
         '６': '6', '７': '7', '８': '8', '９': '9', '０': '0',
